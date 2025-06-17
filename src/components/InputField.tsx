@@ -4,13 +4,12 @@ import './styles.css';
 interface Props {
     todo: string;
     setTodo: React.Dispatch<React.SetStateAction<string>>;
-    // o tipo do setTodo nao pode ser any???? Tmb funciona
+    handleAdd: (e: React.FormEvent) => void; 
 }
 
-const InputField = ({todo, setTodo}: Props) => {
-    
+const InputField = ({todo, setTodo, handleAdd}: Props) => {
   return (
-    <form className='input'>
+    <form className='input' onSubmit={handleAdd}>
         <input type="input"
             value={todo}
             onChange={
@@ -22,10 +21,8 @@ const InputField = ({todo, setTodo}: Props) => {
         <button className="input_submit" type="submit">
             GO
         </button>
-      
-
     </form>
   )
 }
 
-export default InputField
+export default InputField;
