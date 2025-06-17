@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import InputField from './components/InputField';
+import { Todo } from "./models";
 
 const App: React.FC = () => {
+
+  const [todo, setTodo] = useState<string>('');
+  const [todos, setTodos] = useState<Todo[]>([]);  
+
+  console.log(todo);
+
   return (
     <div className="App">
       <span className='heading'>Taskforce</span>
-      <InputField/>
+      <InputField todo={todo} setTodo={setTodo} />
     </div>
   );
 };
@@ -17,7 +24,7 @@ const App: React.FC = () => {
 //     <div className="App">      
 //       Hello World!!
 //     </div>
-//   );
+//   );   
 // }
 
 export default App;
